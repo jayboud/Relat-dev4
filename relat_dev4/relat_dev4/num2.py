@@ -18,7 +18,7 @@ def equations(p,a):
 r_sp,h_sp,k_sp = [6],[3],[-0.05]  # guesses
 a = np.linspace(0,1,300)
 for a_i in a:
-    rs,hs,ks = fsolve(equations, (r_sp[-1],h_sp[-1],k_sp[-1]),args=(a_i))  # guess avec derniere valeur trouvee
+    rs,hs,ks = fsolve(equations, (r_sp[-1],h_sp[-1],k_sp[-1]),args=a_i)  # guess avec derniere valeur trouvee
     r_sp.append(rs)
     h_sp.append(hs)
     k_sp.append(ks)
@@ -29,7 +29,7 @@ k_sp.pop(0)
 r_sm,h_sm,k_sm = [6],[-3],[-0.05]  # guesses
 a = np.linspace(0,1,300)
 for a_i in a:
-    rs,hs,ks = fsolve(equations, (r_sm[-1],h_sm[-1],k_sm[-1]),args=(a_i))  # guess avec derniere valeur trouvee
+    rs,hs,ks = fsolve(equations, (r_sm[-1],h_sm[-1],k_sm[-1]),args=a_i)  # guess avec derniere valeur trouvee
     r_sm.append(rs)
     h_sm.append(hs)
     k_sm.append(ks)
@@ -64,4 +64,3 @@ axs[2].plot(a, np.array(k_sm)-1)
 axs[2].set_ylabel(r"$k-1$")
 axs[2].set_xlabel(r"$a$")
 plt.savefig("num2")
-
